@@ -42,7 +42,7 @@ body {
 
 .layout {
   display: grid;
-  grid-template-columns: 280px 1fr 360px;
+  grid-template-columns: 280px 1fr;
   gap: 20px;
   align-items: start;
 }
@@ -265,18 +265,70 @@ body {
   text-align: center;
 }
 
-.detail-panel {
-  min-height: 720px;
+/* Modal / Layer */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
 }
 
-.detail-header {
-  margin-bottom: 18px;
-  padding-bottom: 12px;
+.modal.hidden {
+  display: none;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.45);
+}
+
+.modal-content {
+  position: relative;
+  z-index: 1001;
+  width: min(920px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  margin: 16px auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
   border-bottom: 1px solid #e5e7eb;
 }
 
+.close-btn {
+  border: none;
+  background: #111827;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  opacity: 0.9;
+}
+
+.modal-body {
+  padding: 24px;
+  overflow-y: auto;
+}
+
 .detail-section {
-  margin-bottom: 22px;
+  margin-bottom: 24px;
 }
 
 .detail-list {
@@ -307,11 +359,6 @@ body {
   color: #4b5563;
 }
 
-.detail-card-empty {
-  color: #9ca3af;
-  font-size: 14px;
-}
-
 .detail-pill {
   display: inline-block;
   margin-top: 8px;
@@ -330,16 +377,6 @@ body {
   font-weight: bold;
 }
 
-@media (max-width: 1500px) {
-  .layout {
-    grid-template-columns: 280px 1fr;
-  }
-
-  .detail-panel {
-    grid-column: 1 / -1;
-  }
-}
-
 @media (max-width: 1200px) {
   .week-grid {
     grid-template-columns: 1fr;
@@ -347,5 +384,22 @@ body {
 
   .layout {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .app {
+    padding: 16px;
+  }
+
+  .modal-content {
+    width: calc(100vw - 16px);
+    max-height: calc(100vh - 16px);
+    margin: 8px auto;
+  }
+
+  .modal-header,
+  .modal-body {
+    padding: 16px;
   }
 }
