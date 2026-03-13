@@ -11,9 +11,9 @@
     <header class="topbar">
       <div>
         <h1>Doctor Planner</h1>
-        <p>Wochenplanung Innere Medizin mit Tagesdetail</p>
+        <p>Wochenplanung Innere Medizin mit Tagesdetail-Layer</p>
       </div>
-      <div class="badge">Prototype v2</div>
+      <div class="badge">Prototype v3</div>
     </header>
 
     <main class="layout">
@@ -28,8 +28,8 @@
           <h2>Bedienung</h2>
           <ul class="event-list">
             <li>Arzt auf Aufgabe ziehen</li>
-            <li>In der Woche auf einen Tag klicken</li>
-            <li>Rechts die Tagesdetails prüfen</li>
+            <li>Auf einen Wochentag klicken</li>
+            <li>Tagesdetails im Layer prüfen</li>
           </ul>
         </section>
       </aside>
@@ -42,13 +42,25 @@
 
         <div id="week-grid" class="week-grid"></div>
       </section>
+    </main>
+  </div>
 
-      <aside class="detail-panel panel">
-        <div class="detail-header">
+  <div id="day-detail-modal" class="modal hidden">
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
           <h2 id="detail-day-title">Tagesdetail</h2>
-          <p id="detail-day-subtitle" class="hint">Wähle einen Tag aus der Wochenansicht.</p>
+          <p id="detail-day-subtitle" class="hint">Detailansicht des ausgewählten Tages</p>
         </div>
 
+        <button id="closeModalBtn" class="close-btn" aria-label="Tagesdetail schließen">
+          ✕
+        </button>
+      </div>
+
+      <div class="modal-body">
         <section class="detail-section">
           <h3>Events</h3>
           <div id="detail-events" class="detail-list"></div>
@@ -58,8 +70,8 @@
           <h3>Aufgaben und Verantwortungen</h3>
           <div id="detail-tasks" class="detail-list"></div>
         </section>
-      </aside>
-    </main>
+      </div>
+    </div>
   </div>
 
   <script src="app.js"></script>
