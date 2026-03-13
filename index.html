@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doctor Planner Prototype</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div>
+        <h1>Doctor Planner</h1>
+        <p>Wochenplanung Innere Medizin mit Tagesdetail</p>
+      </div>
+      <div class="badge">Prototype v2</div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <section class="panel">
+          <h2>Ärzte im Frühdienst</h2>
+          <p class="hint">Arzt per Drag & Drop auf eine Aufgabe ziehen.</p>
+          <div id="doctor-pool" class="doctor-pool"></div>
+        </section>
+
+        <section class="panel">
+          <h2>Bedienung</h2>
+          <ul class="event-list">
+            <li>Arzt auf Aufgabe ziehen</li>
+            <li>In der Woche auf einen Tag klicken</li>
+            <li>Rechts die Tagesdetails prüfen</li>
+          </ul>
+        </section>
+      </aside>
+
+      <section class="planner panel">
+        <div class="planner-header">
+          <h2>Wochenplanung</h2>
+          <button id="resetBtn" class="reset-btn">Planung zurücksetzen</button>
+        </div>
+
+        <div id="week-grid" class="week-grid"></div>
+      </section>
+
+      <aside class="detail-panel panel">
+        <div class="detail-header">
+          <h2 id="detail-day-title">Tagesdetail</h2>
+          <p id="detail-day-subtitle" class="hint">Wähle einen Tag aus der Wochenansicht.</p>
+        </div>
+
+        <section class="detail-section">
+          <h3>Events</h3>
+          <div id="detail-events" class="detail-list"></div>
+        </section>
+
+        <section class="detail-section">
+          <h3>Aufgaben und Verantwortungen</h3>
+          <div id="detail-tasks" class="detail-list"></div>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
